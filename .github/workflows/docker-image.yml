@@ -47,7 +47,7 @@ jobs:
           
       - name: Build Baseline
         run: |
-            for base in $(ls -d demo_b*)
+            for base in $(ls -d demo_baseline)
             do
               docker build --build-arg BASE_DISTRO=$BASE_DISTRO "$base" --tag "$base"
             done
@@ -56,7 +56,7 @@ jobs:
         run: |
             for app in $(ls -d app_t*)
             do
-              docker build --build-arg BASE_DISTRO="$BASELINE_IMAGE_NAME" "$app" --tag "$app"
+              docker build --tag "$app"
             done
 
       - name: Push image to GitHub Container Registry
@@ -71,7 +71,7 @@ jobs:
           [ "$VERSION" == "main" ] && VERSION=latest
 
           # Push apps
-          for IMAGE_NAME in $(ls -d demo_b*) $(ls -d app_t*)
+          for IMAGE_NAME in $(ls -d demo_baseline) $(ls -d app_t*)
           do
             IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
 
