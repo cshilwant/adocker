@@ -8,4 +8,4 @@ RUN export DEBIAN_FRONTEND=noninteractive; apt-get update
 RUN export DEBIAN_FRONTEND=noninteractive; \
          apt-get install -y --no-install-recommends git \
          qt5-qmake qtbase5-dev \
-         qtscript5-dev libqt5svg5-dev build-essential
+         qtscript5-dev libqt5svg5-dev build-essential ca-certificates
