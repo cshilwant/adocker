@@ -10,4 +10,4 @@ RUN mkdir /tmp/gpu && cd /tmp/gpu && \
          cd thermostat_demo && qmake && make
 
 
-ENTRYPOINT ["/tmp/gpu/thermostat_demo/ThermostatDemo --platform wayland"]
+ENTRYPOINT ["/tmp/gpu/thermostat_demo/ThermostatDemo", "--platform", "wayland"]
