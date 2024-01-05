@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.source https://github.com/cshilwant/adocker/app_t
 RUN mkdir /tmp/gpu && cd /tmp/gpu && \
          git clone https://git.ti.com/git/apps/thermostat-demo.git thermostat_demo && \
          cd thermostat_demo && qmake && make && \
-         apt-get purge -y --auto-remove git qt5-qmake build-essential ca-certificates
+         apt-get purge -y --auto-remove git build-essential ca-certificates
 
 
 ENTRYPOINT ["/tmp/gpu/thermostat_demo/ThermostatDemo", "--platform", "wayland"]
