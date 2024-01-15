@@ -80,7 +80,7 @@ jobs:
 
       - name: Build Apps
         run: |
-            for app in $(ls -d app_h*)
+            for app in $(ls -d app_t*)
             do
               docker build "$app" --tag "$app"
             done
@@ -97,7 +97,7 @@ jobs:
           [ "$VERSION" == "main" ] && VERSION=latest
 
           # Push apps
-          for IMAGE_NAME in $(ls -d app_h*)
+          for IMAGE_NAME in $(ls -d app_t*)
           do
             IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
 
